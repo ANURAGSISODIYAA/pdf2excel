@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pdf2excel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pdf2excel
+  template:
+    metadata:
+      labels:
+        app: pdf2excel
+    spec:
+      containers:
+        - name: spring-boot-app
+          image: anurag2121/pdf2excel:latest
+          ports:
+            - containerPort: 8080
